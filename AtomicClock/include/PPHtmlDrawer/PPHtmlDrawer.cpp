@@ -827,7 +827,7 @@ CSize CPPHtmlDrawer::DrawHtmlTable (CDC * pDC, CString & str, CRect & rect, BOOL
 			} //for
 
 			//Creates table
-			for (i = 0; i < szTable.cy; i++)
+			for (int i = 0; i < szTable.cy; i++)
 			{
 				m_arrTable.push_back(row);
 				rowHeight.push_back(0);
@@ -1200,7 +1200,7 @@ CSize CPPHtmlDrawer::DrawHtmlTable (CDC * pDC, CString & str, CRect & rect, BOOL
 							{
 								int step = (sc.szCell.cx - span_width) / i;
 								colWidth [x + i - 1] += (sc.szCell.cx - span_width) % i;
-								for (z = 0; z < i; z++)
+								for (int z = 0; z < i; z++)
 									colWidth [x + z] += step;
 							} //if
 						} //if
@@ -1232,7 +1232,7 @@ CSize CPPHtmlDrawer::DrawHtmlTable (CDC * pDC, CString & str, CRect & rect, BOOL
 							{
 								int step = (sc.szCell.cy - span_height) / i;
 								rowHeight [y] += (sc.szCell.cy - span_height) % i;
-								for (z = 0; z < i; z++)
+								for (int z = 0; z < i; z++)
 									rowHeight [y + z] += step;
 							} //if
 						} //if
@@ -2231,7 +2231,7 @@ void CPPHtmlDrawer::InitNewLine(CPoint & pt, BOOL bCalc)
 	if (bCalc)
 	{
 		//ENG: Creates a new line with default parameters
-		//RUS: Создание новой линии с параметрами по-умолчанию
+		//RUS: Создание ново?лини??параметрам?по-умолчани?
 		m_hline.nAddPercentWidth = 0;
 		m_hline.nDescentLine = 0;
 		m_hline.nHeightLine = 0;
@@ -2242,7 +2242,7 @@ void CPPHtmlDrawer::InitNewLine(CPoint & pt, BOOL bCalc)
 	else
 	{
 		//ENG: Gets the data of the first line and converts the percent value to the real width
-		//RUS: Получаем данные первой строки и преобразуем процентную ширину в реальную
+		//RUS: Получаем данные первой строки ?преобразуе?процентную ширину ?реальную
 		m_hline = m_arrHtmlLine [m_nCurLine];
 		if (m_hline.nAddPercentWidth)
 			m_hline.nWidthLine += ::MulDiv(m_rect.Width(), m_hline.nAddPercentWidth, 100);
